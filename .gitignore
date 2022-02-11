@@ -1,2 +1,4 @@
 *.*
 !*.cs
+**/Debug/*.*
+**/AssemblyInfo.cs
