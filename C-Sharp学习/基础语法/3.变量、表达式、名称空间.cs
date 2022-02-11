@@ -30,7 +30,7 @@ namespace 基础语法
 {
     internal class Chapter3
     {
-        public static void Content()
+        public void Content()
         {
             Console.WriteLine(
     @"
@@ -49,7 +49,6 @@ namespace 基础语法
             // 变量名可以以@开头 从而使用保留关键字 (不常用)
             int @int = 66;
             float f = 3.1f; //默认双浮点 结尾加上f才能表示单浮点
-            //  注意c#没有隐式转换
             Console.WriteLine($"浮点数:{f:0.0000000}  整数:{@int}");
 
             // 运算符
