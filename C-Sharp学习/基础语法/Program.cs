@@ -5,13 +5,14 @@
 
 namespace 基础语法 //命名空间 不同文件可以用相同的命名空间
 {
-    internal class Program // Program类名不是固定的
+    internal class Program // Program类名不是固定的  internal表示只有本项目中的才能访问（同解决方案的不能）
     {
         static void Main(string[] args)
         {
             //new Chapter3().Content(); //3.变量、表达式、名称空间
             //new Chapter4().Content(); //4.流程控制
-            new Chapter5().Content(); //5.变量的更多内容
+            //new Chapter5().Content(); //5.变量的更多内容
+            new Chapter6().Content(); //6.函数
         }
     }
 }

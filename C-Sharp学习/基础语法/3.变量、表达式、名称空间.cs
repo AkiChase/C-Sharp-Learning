@@ -10,7 +10,9 @@ namespace 基础语法 //可以多次使用，会合并
     }
 }
 
-
+/// <summary>
+/// 这是一个测试的命名空间
+/// </summary>
 namespace TTTT
 {
     namespace TT //命名空间可以套命名空间
@@ -18,6 +20,11 @@ namespace TTTT
         public class Bar
         {
             public string t = "bbb";
+
+            void test()
+            {
+                string s = Convert.ToString(基础语法.Chapter5.Sex.woman);
+            }
         }
     }
     public class Foo
@@ -38,9 +45,25 @@ namespace 基础语法
 可以实现多行文本
 ");
 
+            /*
+             变量命名一般用驼峰法Camel
+             类、命名空间命名则用Pascal(即每个单词首字母都大写)
+             */
+
+            // 虽然可以用中文变量名，但不建议
+            int 数字 = 1;
+            Console.WriteLine(数字);
+
+            char ch = '男'; //c#使用unicode
+            Console.WriteLine(ch);
+
+            // String 是C++内的，string是关键字，但两者映射到的内容是相同的
             string s = "\"哦豁\"\t";
             s += @"""哦吼"" c:\abc\xxx.x"; //@""类似于python 中的 r"" 但两个引号才转义为一个引号
-                                         // 可以使用_在任何数字中
+            // 可以使用_在任何数字中
+            // \b表示退格键，但是放在字符串两端时无效
+            // 在文本文件里: windows写入\n不会换行，需要\r\n
+
             Console.WriteLine($"关于字符转义: {s}"); //format方式2
 
             double d = 1.111_111_11;

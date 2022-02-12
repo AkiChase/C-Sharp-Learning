@@ -4,9 +4,14 @@ namespace 基础语法
 {
     internal class Chapter4
     {
+        /// <summary>
+        /// 显示a,b变量的值
+        /// </summary>
+        /// <param name="a">第一个布尔值</param>
+        /// <param name="b">第二个布尔值</param>
         private void ShowAandB(bool a, bool b)
         {
-            Console.WriteLine($"a = {Convert.ToString(a)}\tb = {Convert.ToString(b)}");
+            Console.WriteLine($"a = {a}\tb = {b}");
         }
 
         public void Content()
@@ -43,6 +48,7 @@ namespace 基础语法
             Console.WriteLine("输入数字:");
             int num;
             num = Convert.ToInt32(Console.ReadLine());
+            // 会依次比较case的条件，满足则进入
             switch (num) // C#中 强制要求break 无法连续运行case
             {
                 case 0:
