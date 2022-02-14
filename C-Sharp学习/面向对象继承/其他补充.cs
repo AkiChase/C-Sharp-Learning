@@ -147,8 +147,13 @@ namespace 面向对象继承
             list.AddRange(list); //将一个数组、集合 添加到当前list
             list.Insert(0, "啊啊啊");
             //list.InsertRange 类似 AddRange
-            for (int i = 0; i < list.Count; i++)
-                Console.WriteLine(list[i]);
+
+            // foreach 对数组时会编译为for循环
+            // 所以哪个写的顺手用哪个
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
 
             //list.Clear(); //清空
             //list.Remove("测试"); //删除第一个匹配项
@@ -159,10 +164,91 @@ namespace 面向对象继承
             //list.Contains("测试"); 返回bool
 
             ShowListInfo(list);
-            
+
 
             #endregion
 
+            #region HashTable 键值对
+            // 类似于字典
+            // 但是不能Add相同的键
+            Hashtable ht = new Hashtable();
+            //Person p = new Person("学习", 12, '男');
+            //ht.Add(p, "这是值"); //甚至可以把对象作为键
+            ht.Add("1", "111");
+            ht.Add("啊", "第一个");
+            ht.Add("噢", "第二");
+            ht.Add("2", "234");
+            ht["2"] = "222";
+            ht[6] = "醒来的"; //也能赋值
+
+            // var 类似于auto
+            var n = 123.123;
+            Console.WriteLine(n.GetType());
+            foreach (var item in ht.Keys)
+            {
+                Console.WriteLine("键：{0}\t值：{1}", item, ht[item]);
+            }
+
+            //ht.ContainsKey(key) //和ht.Contains(key)一样
+            //ht.ContainsValue()
+            //ht.Clear()
+            //ht.Remove(key)
+
+            #endregion
+
+            #region Path类
+            string path = @"D:\Microsoft Visual Studio\2020\Common7\IDE\xxx.exe";
+            // 或者使用 / 代替 \
+            Console.WriteLine(Path.GetFileName(path)); //文件名
+            Console.WriteLine(Path.GetFileNameWithoutExtension(path)); // 文件名（无后缀）
+            Console.WriteLine(Path.GetDirectoryName(path)); //所在文件夹
+            Console.WriteLine(Path.Combine(Path.GetDirectoryName(path), "test.t")); // 路径拼接
+            //Path.HasExtension("exe")
+            //Path.IsPathRooted(path)
+
+            Console.WriteLine(Path.GetFullPath("../../")); // 使用GetFullPath获取相对路径
+            Console.WriteLine(Path.GetFullPath( //获取拼接后相对路径的绝对路径
+                Path.Combine(path, "../test.t")
+                ));
+            //Directory.GetCurrentDirectory(); //可以获取当前工作路径
+
+            #endregion
+
+            #region File类
+            //File.Create(path); 返回 FileStream 类
+            //File.Delete(path); 返回要删除的文件的名称
+            //File.Copy(path, path2, true); // 复制文件到path2 允许覆盖文件 void方法
+            //File.Move(path, path2) // 目标文件已存在会报错
+
+            // 只适合读取小文件
+            // 大文件需要使用io流
+
+
+            path = "./测试.txt";
+
+            // 通过 字节写入
+            //string s = "测试文本写入，通过字节写入";
+            //byte[] buffer = Encoding.Default.GetBytes(s);
+            //File.WriteAllBytes("./测试.txt", buffer); //会覆盖文件,文件在exe的相对路径下
+
+            // 通过 字节读取(非文本文件就需要字节读写了)
+            //byte[] buffer = File.ReadAllBytes("./测试.txt");
+            //string s = Encoding.Default.GetString(buffer); //Default需要视情况改为其他编码
+            //Console.WriteLine(s);
+
+            // 文本写入
+            //File.WriteAllLines(path, new string[] { "啊啊啊", "哈哈哈" });
+            //File.WriteAllText(path, "这是所有内容了");
+
+            //文本追加
+            //File.AppendAllLines(path, new string[] { "新行", "大行" });
+            //File.AppendAllText()
+
+            // 文本读取
+            //string[] lines = File.ReadAllLines(path);
+            //string allText = File.ReadAllText(path);
+
+            #endregion
         }
 
 
