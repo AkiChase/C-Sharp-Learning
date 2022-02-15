@@ -12,8 +12,9 @@ namespace 面向对象多态
         {
             //泛型.Content();
             //文件流.Content();
-            多态.Content();
+            //多态.Content();
             //补充.Content();
+            委托.Content();
         }
     }
 }
