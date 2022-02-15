@@ -9,6 +9,7 @@ namespace 面向对象多态
     internal class 委托
     {
         //delegate 是一种可用于封装命名或匿名方法的引用类型。
+        // 其实就是声明一种函数指针的类型（确定参数类型和返回值类型）
         //委托类似于 C++ 中的函数指针
         // 经常用于需要将某函数作为参数传入，然后再调用传入的函数的行为（回调等等）
         public delegate void MyDelegate(string s);
@@ -41,8 +42,8 @@ namespace 面向对象多态
             Console.WriteLine("--------------------");
 
             // 相同类型的委托可被合并
-            // 执行委托时会按顺序执行委托列表
-            MyDelegate md = md1 + md2;
+            // 执行委托的顺序是没有意义的！所以注意不要使用需要按顺序的委托列表
+            MyDelegate md = md1 + md2; // 可以使用+=  -=来动态增减其中的函数
             SomeFunc(md, "第三句话");
             Console.WriteLine("--------------------");
 

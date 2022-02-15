@@ -22,12 +22,25 @@ namespace 面向对象多态
         //}
 
         //使用自动属性:编译器会自动补充一个私有字段（名称不定）,并补充get、set方法
+        //此外属性可以设置为静态的
         public string Name
         {
             get;
             set; //不声明set访问器时，仅能在构造函数中set
         }
 
+        // 索引器(其实就是运算符[]的重载)
+        // 不能设置为static（因为需要this）
+        public string this[string s]
+        {
+            //set { }
+            get { return s + "索引："; }
+        }
+        public string this[int idx]
+        {
+            //set { }
+            get { return $"索引:{idx}"; }
+        }
 
 
         public virtual void SayHello() //标记 virtual 则此函数 可以 被子类重写
