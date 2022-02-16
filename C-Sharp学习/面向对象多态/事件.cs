@@ -143,6 +143,9 @@ namespace 面向对象多态
             #region 使用内置 EventHandler<>事件
             SomeEvent xxxEvent = new SomeEvent();
             xxxEvent.XxxNoArgEvent += CallBackNoArg;
+            // 用匿名方法的形式添加事件回调
+            xxxEvent.XxxNoArgEvent += (sender, e) => { Console.WriteLine("匿名方法的形式添加回调"); };
+
             xxxEvent.XxxWithArgEvent += CallBackWithArg;
 
             //这里写什么什么情况下，触发事件

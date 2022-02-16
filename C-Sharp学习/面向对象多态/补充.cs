@@ -46,9 +46,20 @@ namespace 面向对象多态
 
     internal static class 补充
     {
+        public delegate void TestDelegate(int n);
+        public delegate int TestDelegate2(int n);
         public static void Content()
         {
             Console.WriteLine(new ToStringOverride().ToString());
+
+            TestDelegate t1 = delegate (int num) { Console.WriteLine("aaa"); }; //使用delegate写匿名函数
+
+            // delegate关键字可以省略, 甚至变量类型也可以省略（因为根据委托类型推断）
+            TestDelegate t2 = (num) => { Console.WriteLine("bbb"); }; // 使用lamda表达式写匿名函数
+
+            // 若需要返回值，甚至可以省略return 但此时也要去掉{}括号（不能执行多条语句）
+            TestDelegate2 t3 = (num) => num + 100;
+            Console.WriteLine(t3(123));
         }
     }
 }

@@ -15,7 +15,10 @@ namespace 面向对象多态
             //多态.Content();
             //补充.Content();
             //委托.Content();
-            事件.Content();
+            //事件.Content();
+            //LINQ查询.Content();
+            //运算符重载.Content();
+            异常.Content();
         }
     }
 }
